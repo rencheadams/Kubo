@@ -1,1 +1,1 @@
-# QBO-Events-Management
+# QBO Events Management
