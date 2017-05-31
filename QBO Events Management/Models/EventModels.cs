@@ -10,6 +10,7 @@ namespace QBO_Events_Management.Models
 		public int eventID { get; set; }
 		public string Name { get; set; }
 		public string Details { get; set; }
+		public DateTime Date { get; set; }
 
 
 	}
