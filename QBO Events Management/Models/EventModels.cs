@@ -12,5 +12,6 @@ namespace QBO_Events_Management.Models
 		public string Details { get; set; }
 		public DateTime Date { get; set; }
         public String Venue { get; set; }
+        public DateTime Time { get; set; }
 	}
 }
