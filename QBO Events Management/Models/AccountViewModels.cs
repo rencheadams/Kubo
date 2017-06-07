@@ -79,7 +79,33 @@ namespace QBO_Events_Management.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-    }
+
+		[Required]
+		[StringLength(100)]
+		[Display(Name = "Full Name")]
+		public string FullName { get; set; }
+
+		[Required]
+		[DataType(DataType.Text)]
+		[Display(Name = "Gender")]
+		//public List<System.Web.Mvc.SelectListItem> GenderTypes { get; set; }
+		//public int GenderID { get;}
+		public bool Gender { get; set; }
+
+
+		[Required]
+		[StringLength(255)]
+		[Display(Name = "Address")]
+		public string Address { get; set; }
+
+		[Required]
+		[Display(Name = "Mobile Number")]
+		[DataType(DataType.PhoneNumber)]
+		[RegularExpression(@"^(09|\+639)\d{9}$", ErrorMessage = "Not a valid Phone number")]
+		//[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+		public string PhoneNumber { get; set; }
+
+	}
 
     public class ResetPasswordViewModel
     {

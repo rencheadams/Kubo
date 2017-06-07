@@ -24,8 +24,8 @@ namespace QBO_Events_Management
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css", "~/Content/qbo.css",
+					  "~/Content/site.css"));
         }
     }
 }
