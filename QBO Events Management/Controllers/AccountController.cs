@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Mail;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -73,9 +74,9 @@ namespace QBO_Events_Management.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+			// This doesn't count login failures towards account lockout
+			// To enable password failures to trigger account lockout, change to shouldLockout: true 
+			var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -142,6 +143,8 @@ namespace QBO_Events_Management.Controllers
             return View();
         }
 
+
+
         //
         // POST: /Account/Register
         [HttpPost]
@@ -151,43 +154,105 @@ namespace QBO_Events_Management.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+				var user = new ApplicationUser {
+					UserName = model.Email,
+					Email = model.Email,
+					FullName = model.FullName,
+					Gender = model.Gender,
+					PhoneNumber = model.PhoneNumber,
+					Address = model.Address,
+				};
+				//user.Email = model.Email;
+				//user.EmailConfirmed = false;
 
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
+				var result = await UserManager.CreateAsync(user, model.Password);
+				if (result.Succeeded)
+				{
+					await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+					// For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+					// Send an email with this link
+					string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+					var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+					await UserManager.SendEmailAsync(user.Id, "Activate your Account",  callbackUrl);
+
+					return RedirectToAction("Index", "Home");
+					//MailMessage msg = new MailMessage(new MailAddress("josephbrian.manalo@benilde.edu.ph", "Joseph Manalo"),new MailAddress(user.Email));
+					//msg.Subject = "Account Confirmation";
+					//msg.Body = string.Format("Dear {0}<BR/>Thank you for your registration, please click on the below link to comlete your registration: " +
+					//	"<a href=\"{1}\" title=\"User Email Confirm\">{1}</a>", user.UserName, Url.Action("ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme)
+					//	);
+					//msg.IsBodyHtml = true;
+
+					//SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587); //465
+					//smtp.Credentials = new System.Net.NetworkCredential("josephbrian.manalo@benilde.edu.ph", "bd67fn217gf33");
+					//smtp.EnableSsl = true;
+					//smtp.Send(msg);
+				}
+					AddErrors(result);
+				
+
+				//var result = await UserManager.CreateAsync(user, model.Password);
+				//if (result.Succeeded)
+				//{
+				//    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+				//    return RedirectToAction("Index", "Home");
+				//}
+				//AddErrors(result);
+
+
+
+
+
+			}
+
+			// If we got this far, something failed, redisplay form
+			return View(model);
         }
 
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return View("Error");
-            }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
+		public async Task<ActionResult> ConfirmEmail(string userId, string code)
+		{
+			if (userId == null || code == null)
+			{
+				return View("Error");
+			}
+			var result = await UserManager.ConfirmEmailAsync(userId, code);
+			return View(result.Succeeded ? "ConfirmEmail" : "Error");
+		}
+		//public async Task<ActionResult> ConfirmEmail(string Token, string Email)
+		//{
+		//	ApplicationUser user = this.UserManager.FindById(Token);
+		//	if (user != null)
+		//	{
+		//		if (user.Email == Email)
+		//		{
+		//			user.EmailConfirmed = true;
+		//			await UserManager.UpdateAsync(user);
 
-        //
-        // GET: /Account/ForgotPassword
-        [AllowAnonymous]
+
+		//			await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+		//			return RedirectToAction("Index", "Home", new { ConfirmedEmail = user.Email });
+		//		}
+		//		else
+		//		{
+		//			return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+		//		}
+		//	}
+		//	else
+		//	{
+		//		return RedirectToAction("Confirm", "Account", new { Email = "" });
+		//	}
+
+		//}
+
+
+		//
+		// GET: /Account/ForgotPassword
+		[AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -209,13 +274,13 @@ namespace QBO_Events_Management.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
-            }
+				// For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+				// Send an email with this link
+				//string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+				//var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+				//await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+				//return RedirectToAction("ForgotPasswordConfirmation", "Account");
+			}
 
             // If we got this far, something failed, redisplay form
             return View(model);
