@@ -46,7 +46,7 @@ namespace QBO_Events_Management.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "eventID,Name,Details,Date,Time,Venue")] Event @event)
+        public ActionResult Create([Bind(Include = "eventID,Name,Details,Date,Venue")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace QBO_Events_Management.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "eventID,Name,Details,Date,Time,Venue")] Event @event)
+        public ActionResult Edit([Bind(Include = "eventID,Name,Details,Date,Venue")] Event @event)
         {
             if (ModelState.IsValid)
             {
