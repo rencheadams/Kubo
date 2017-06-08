@@ -104,7 +104,7 @@ namespace QBO_Events_Management.Models
 		[RegularExpression(@"^(09|\+639)\d{9}$", ErrorMessage = "Not a valid Phone number")]
 		//[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
 		public string PhoneNumber { get; set; }
-
+		
 	}
 
     public class ResetPasswordViewModel

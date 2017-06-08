@@ -155,7 +155,7 @@ namespace QBO_Events_Management.Controllers
             if (ModelState.IsValid)
             {
 				var user = new ApplicationUser {
-					UserName = model.FullName,
+					UserName = model.Email,
 					Email = model.Email,
 					FullName = model.FullName,
 					Gender = model.Gender,
