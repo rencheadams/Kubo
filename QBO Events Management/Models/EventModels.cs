@@ -11,8 +11,10 @@ namespace QBO_Events_Management.Models
 	{
 		public int eventID { get; set; }
 		public string Name { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public String Venue { get; set; }
+        [DataType(DataType.Time)]
         public TimeSpan Time { get; set; }
         [DataType(DataType.MultilineText)]
         public string Details { get; set; }
