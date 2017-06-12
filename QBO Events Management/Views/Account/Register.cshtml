@@ -38,21 +38,9 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @*@Html.CheckBoxFor(m => m.Gender, new { @class = "form-control" })*@
-            
-            <select name="Gender" id="Gender" class="form-control">
-                <option value="true">Male</option>
-                <option value="false">Female</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "ex. 09126543211 / 639126543211" })
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
         </div>
     </div>
 
@@ -63,26 +51,12 @@
         </div>
     </div>
 
-    @*<div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.CheckBoxFor(m => m.Gender, new { @class = "form-control" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-        </div>
-    </div>*@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

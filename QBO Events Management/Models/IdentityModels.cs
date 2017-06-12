@@ -12,9 +12,10 @@ namespace QBO_Events_Management.Models
     {
 
 		public string FullName { get; set; }
+		//public string Email { get; set; }
 		public bool Gender { get; set; }
 
-		//public bool EmailConfirmed { get; set; }
+		////public bool EmailConfirmed { get; set; }
 		public string Address { get; set; }
 		public string PhoneNumber { get; set; }
 
@@ -37,12 +38,17 @@ namespace QBO_Events_Management.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
+		//, throwIfV1Schema: false
+		{
+		}
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-    }
+		
+		public DbSet<Event> Events { get; set; }
+		
+
+	}
 }
