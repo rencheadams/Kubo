@@ -8,10 +8,7 @@ body {
 	letter-spacing: 2px;
 }
 
-#RememberMe {
-	/*display:inline;
-	margin-left:100px;*/
-}
+
 
 
 #loginForm {
@@ -64,6 +61,3 @@ margin-top:100px;
 	color:white;	
 }
 
-/*.form-group .field-validation-error {
-	margin-top:25px !important;
-}*/
