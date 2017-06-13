@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QBO_Events_Management.Models
 {
+	
 	public class Event
 	{
 		public int eventID { get; set; }
@@ -20,8 +21,5 @@ namespace QBO_Events_Management.Models
         public string Details { get; set; }
 	}
 
-    public class EventDBContext : DbContext
-    {
-        public DbSet<Event> Events { get; set; }
-    }
+   
 }

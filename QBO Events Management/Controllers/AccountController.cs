@@ -162,8 +162,6 @@ namespace QBO_Events_Management.Controllers
 					PhoneNumber = model.PhoneNumber,
 					Address = model.Address,
 				};
-				//user.Email = model.Email;
-				//user.EmailConfirmed = false;
 
 				var result = await UserManager.CreateAsync(user, model.Password);
 				if (result.Succeeded)
@@ -185,7 +183,7 @@ namespace QBO_Events_Management.Controllers
 					//msg.IsBodyHtml = true;
 
 					//SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587); //465
-					//smtp.Credentials = new System.Net.NetworkCredential("josephbrian.manalo@benilde.edu.ph", "bd67fn217gf33");
+					//smtp.Credentials = new System.Net.NetworkCredential("josephbrian.manalo@benilde.edu.ph", "awtspass");
 					//smtp.EnableSsl = true;
 					//smtp.Send(msg);
 				}

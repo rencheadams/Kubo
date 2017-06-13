@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QBO_Events_Management.Models
 {
@@ -46,7 +47,8 @@ namespace QBO_Events_Management.Models
         public string Email { get; set; }
     }
 
-    public class LoginViewModel
+	[NotMapped]
+	public class LoginViewModel
     {
         [Required]
         [Display(Name = "Email")]
@@ -104,7 +106,7 @@ namespace QBO_Events_Management.Models
 		[RegularExpression(@"^(09|\+639)\d{9}$", ErrorMessage = "Not a valid Phone number")]
 		//[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
 		public string PhoneNumber { get; set; }
-		
+
 	}
 
     public class ResetPasswordViewModel

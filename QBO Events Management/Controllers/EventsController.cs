@@ -12,7 +12,7 @@ namespace QBO_Events_Management.Controllers
 {
     public class EventsController : Controller
     {
-        private EventDBContext db = new EventDBContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
         public ActionResult Index()
