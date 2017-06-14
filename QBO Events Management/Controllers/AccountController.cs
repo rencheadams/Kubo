@@ -526,7 +526,21 @@ namespace QBO_Events_Management.Controllers
 
 				return RedirectToAction("Index", "Events");
 			}
-        }
+
+			//public ActionResult Redirect()
+			//{
+			//	if (User.IsInRole("Admin"))
+			//	{
+			//		User.
+			//		return RedirectToAction("Index", "Events");
+			//	}
+			//	else
+			//	{
+
+			//		return RedirectToAction("Index", "Home");
+			//	}
+			//}
+		}
 
         internal class ChallengeResult : HttpUnauthorizedResult
         {
