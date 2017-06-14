@@ -10,12 +10,14 @@ using QBO_Events_Management.Models;
 
 namespace QBO_Events_Management.Controllers
 {
-    public class EventsController : Controller
+
+	[Authorize(Roles = "Admin")]
+	public class EventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Events
-        public ActionResult Index()
+		// GET: Events
+		public ActionResult Index()
         {
             return View(db.Events.ToList());
         }

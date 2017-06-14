@@ -9,7 +9,7 @@
 
 
 <div class="row"> <!-- col-xs-12 col-md-4 col-md-offset-4 col-lg-offset-4 col-lg-4  -->
-    <div class="col-md-4 col-md-offset-4 login" align="center">
+    <div class="col-md-4 col-md-offset-4 login">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
@@ -42,7 +42,7 @@
                         <br />
                         <p> @Html.ActionLink("Forgot your password?", "ForgotPassword") </p>
                         @*<p><a href="" data-toggle="modal" data-target="#myModal">Register</a></p>*@ @*@Html.ActionLink("Register as a new user", "Register")*@  
-                        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                        @*@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })*@
                     </div>
                 </div>
 

@@ -21,3 +21,18 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.title {
+	text-align: center;
+	color: #03c4eb;
+	font-size: 40px;
+	font-weight: 800;
+	letter-spacing: 5px;
+	text-transform:uppercase;
+}
+
+.validation-summary-errors ul li {
+	list-style-type: none;
+}
+

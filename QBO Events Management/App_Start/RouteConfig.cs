@@ -14,9 +14,9 @@ namespace QBO_Events_Management
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
+                name: "Events",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Events", action = "Index", id = UrlParameter.Optional }
             );
 			
 

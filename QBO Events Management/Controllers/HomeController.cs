@@ -20,6 +20,7 @@ namespace QBO_Events_Management.Controllers
             return View();
         }
 
+		
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

@@ -2,20 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 
-body {
+body, #registerForm {
 	background: black;
 	font-family: Raleway;
 	letter-spacing: 2px;
 }
 
-
-
-
 #loginForm {
 margin-top:100px;
 }
 
-#loginForm input {
+#loginForm input, #registerForm input{
 	margin-top:10px;
 	font-size: 11px;
 	/*text-transform: uppercase;*/
@@ -29,7 +26,7 @@ margin-top:100px;
 }
 
 
-#login {
+#login, #register {
 	background: #03c4eb;
 	border: none;
 	display: inline-block;
@@ -61,3 +58,9 @@ margin-top:100px;
 	color:white;	
 }
 
+#registerForm label {
+	color: #03c4eb;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 300;
+}
