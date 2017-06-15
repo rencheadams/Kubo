@@ -218,6 +218,7 @@
   <ItemGroup>
     <Content Include="Content\additional\qbo.css" />
     <Content Include="Content\additional\qboAdmin.css" />
+    <Content Include="Content\additional\qboMember.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\default.png" />
@@ -291,7 +292,10 @@
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Events\View.cshtml" />
-    <Content Include="Views\Manage\EditAccount.cshtml" />
+    <Content Include="Views\Manage\AdminAccount.cshtml" />
+    <Content Include="Views\Shared\_MemberLayout.cshtml" />
+    <Content Include="Views\Manage\MemberAccount.cshtml" />
+    <Content Include="Views\Events\ListOfEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

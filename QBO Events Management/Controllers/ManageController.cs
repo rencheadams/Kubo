@@ -106,10 +106,16 @@ namespace QBO_Events_Management.Controllers
             return View();
         }
 
-		public ActionResult EditAccount()
+		public ActionResult AdminAccount()
 		{
 			return View();
 		}
+
+		public ActionResult MemberAccount()
+		{
+			return View();
+		}
+
 
 		//
 		// POST: /Manage/AddPhoneNumber

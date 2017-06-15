@@ -25,7 +25,7 @@ namespace QBO_Events_Management
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css", "~/Content/additional/qbo.css", "~/Content/additional/qboAdmin.css",
-					  "~/Content/site.css"));
+					  "~/Content/additional/qboMember.css", "~/Content/site.css"));
         }
     }
 }

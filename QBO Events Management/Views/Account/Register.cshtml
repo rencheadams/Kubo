@@ -1,6 +1,6 @@
 ﻿@model QBO_Events_Management.Models.RegisterViewModel
 
-@Styles.Render("~/Content/additional/qbo.css")
+
 @{
     ViewBag.Title = "Register";
 }
@@ -44,13 +44,11 @@
                     @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
 
-        <div class="col-lg-6">
             <div class="form-group">
                 @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-3 control-label" })
                 <div class="col-md-9">
-                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder="ex. 09031365567" })
+                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "ex. 09031365567" })
                     @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -75,10 +73,21 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="col-lg-6">
+
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <img src="@Url.Content("~/Content/img/default.png")" class="img-responsive" alt="Image" />
+                    </div>
+                </div>
+
+               
+
             <br />
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-8">
-                    @*<input type="submit" class="btn btn-default" value="Register" />*@
                     <button id="register" class="btn btn-default">Register</button>
                 </div>
             </div>

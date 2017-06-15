@@ -22,6 +22,11 @@ namespace QBO_Events_Management.Controllers
             return View(db.Events.ToList());
         }
 
+		public ActionResult ListOfEvents()
+		{
+			return View();
+		}
+
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
