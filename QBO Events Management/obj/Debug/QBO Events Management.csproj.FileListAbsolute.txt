@@ -80,5 +80,3 @@ C:\Users\Joseph Manalo\Documents\GitHub\Spectres\Kubo\QBO Events Management\bin\
 C:\Users\Joseph Manalo\Documents\GitHub\Spectres\Kubo\QBO Events Management\obj\Debug\QBO Events Management.dll
 C:\Users\Joseph Manalo\Documents\GitHub\Spectres\Kubo\QBO Events Management\obj\Debug\QBO Events Management.pdb
 C:\Users\Joseph Manalo\Documents\GitHub\Spectres\Kubo\QBO Events Management\obj\Debug\QBO Events Management.csprojResolveAssemblyReference.cache
-C:\Users\Joseph Manalo\Documents\GitHub\Spectres\Kubo\QBO Events Management\obj\Debug\QBO_Events_Management.Migrations.init.resources
-C:\Users\Joseph Manalo\Documents\GitHub\Spectres\Kubo\QBO Events Management\obj\Debug\QBO Events Management.csproj.GenerateResource.Cache
