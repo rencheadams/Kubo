@@ -20,11 +20,11 @@ namespace QBO_Events_Management
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+					  "~/Scripts/custom.js", "~/Scripts/jquery.dataTables.min.js", "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css", "~/Content/font-awesome.min.css", "~/Content/additional/qbo.css", "~/Content/additional/qboAdmin.css",
+					  "~/Content/jquery.dataTables.min.css", "~/Content/bootstrap.css", "~/Content/font-awesome.min.css", "~/Content/additional/qbo.css", "~/Content/additional/qboAdmin.css",
 					  "~/Content/additional/qboMember.css", "~/Content/site.css"));
         }
     }

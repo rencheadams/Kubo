@@ -16,7 +16,8 @@ namespace QBO_Events_Management
             routes.MapRoute(
                 name: "Events",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Events", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+										//default				index
             );
 			
 

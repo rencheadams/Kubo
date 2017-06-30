@@ -147,6 +147,7 @@ label {
 /*profile*/
 
 #profile {
+	margin-top:50px;
 	background: #03c4eb;
 	color: white;
 }
@@ -201,4 +202,18 @@ label {
 	letter-spacing: 2px;
 	margin: 5px;
 	margin-bottom: 15px;
+}
+
+/* datatables*/
+
+table.dataTable tbody tr {
+background-color:transparent;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+	linear-gradient(to bottom, #03c4eb 0%, #03c4eb 100%)
+}
+
+table.dataTable.no-footer {
+	border-bottom:none;
 }

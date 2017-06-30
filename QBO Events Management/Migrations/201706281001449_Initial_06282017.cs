@@ -24,7 +24,7 @@ namespace QBO_Events_Management.Migrations
                 c => new
                     {
                         ParticipantID = c.Int(nullable: false, identity: true),
-                        PersonID = c.Int(nullable: false),
+                        PersonID = c.String(nullable: false),
                         HasAttended = c.Boolean(nullable: false),
                         Email = c.String(),
                         EventsID = c.Int(nullable: false),

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>QBO - @ViewBag.Title</title>
+    <link rel="stylesheet" href="" />
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/additional/qboAdmin.css")
     @Scripts.Render("~/bundles/modernizr")
@@ -14,27 +15,7 @@
 <body>
 
 
-
-    @*<div class="navbar navbar-inverse navbar-fixed-left">
-            <a class="navbar-brand" href="#">
-                <img src="@Url.Content("~/Content/img/logo.png")" class="img-responsive" alt="Image" />
-            </a>
-            <ul class="nav navbar-nav">
-            @if (Request.IsAuthenticated)
-            {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                {
-                    @Html.AntiForgeryToken()
-                <li><a href="#">Hello, @User.Identity.GetUserName() !</a></li>
-                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                <li>@Html.ActionLink("Create Event", "Create")</li>
-                <li>@Html.ActionLink("View Event", "Index")</li>
-                <li><a href="#">Link5</a></li>
-                }
-            }
-            </ul>
-        </div>*@
-
+    
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -49,7 +30,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Events", "ListOfEvents", "Events")</li>
-                    <li>@Html.ActionLink("HQ", "About", "Home")</li>
+                    <li>@Html.ActionLink("HQ", "ListOfEvents", "Events")</li>
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -59,7 +40,8 @@
 
 
 
-    <div class="body-content">
+    <div class="">
+        @*  body-content *@
 
         @RenderBody()
 
