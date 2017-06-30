@@ -2,46 +2,76 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Participants";
 }
 
-<table class="table table-bordered table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Profiles.Name)
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="container">
+    <br /><br /><br />
+    <h1 class="title">PARTICIPANTS</h1>
+    <br /><br />
+
+    <div class="col-lg-3">
+        <a class="btn btn-primary" href="@Url.Action("ListOfEvents")">Go Back</a>
+        <a class="btn btn-primary" href="@Url.Action("AddAttendee")"><i class="fa fa-user-circle"></i> Add Walk-in</a>
+    </div>
+
+    <div class="col-lg-6">
+        @*<div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-addon">
+
+                        <span class="glyphicon glyphicon-search"></span>
+
+                    </span>
+                </div>
+            </div>*@
+    </div>
+
+    <br /><br /><br />
+    <table class="table table-hover table-responsive">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Profiles.Name)
-                </td>
+                <th>
 
-                <td>
-
-                </td>
-
-                <td>
-                    @Html.ActionLink("View Profile", item.Uri) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
-                </td>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Profiles.Name)
+                <th>Status</th>
+                <th>Date Registered</th>
+                <th>Type</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        <img src="@Url.Content("~/Content/img/default.png")" width="100" class="img-responsive" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Profiles.Name)
+                    </td>
 
-</table>
+                    <td></td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRegistered)
+                    </td>
+
+                    <td></td>
+
+                    <td>
+                        <a href="@Url.Action("Profile", new { id=item.ID})" class="btn btn-success"><i class="fa fa-user"></i> View Profile</a>
+                    </td>
+                </tr>
+        }
+        </tbody>
+
+    </table>
+
+</div>
 
 
 

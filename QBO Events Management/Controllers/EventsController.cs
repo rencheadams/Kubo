@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 namespace QBO_Events_Management.Controllers
 {
 
-	//[Authorize(Roles = "Admin")]
+	[Authorize(Roles = "Admin")]
 	public class EventsController : Controller
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
@@ -30,8 +30,18 @@ namespace QBO_Events_Management.Controllers
 			var json = new WebClient().DownloadString(organizer);
 
 			EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json);
-
+			
 			return View(e.Events);
+
+			//e.Events.ForEach()
+			////get num of attendees
+			//string attendees = "https://www.eventbriteapi.com/v3/events/" + id + "/attendees/?token=RHB5LVF477QSIZN4JYP5";
+			//var json2 = new WebClient().DownloadString(attendees);
+			//EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json2);
+
+			//int length = e.Attendees.Count();
+			//ViewBag.Length = length;
+
 
 			//EventbriteContext context = new EventbriteContext("RHB5LVF477QSIZN4JYP5");
 			//// find a list of attendees for an event by supplying an id of the requested event.
@@ -104,7 +114,7 @@ namespace QBO_Events_Management.Controllers
 
 			//return View(Attendees);
 		}
-		
+
 		public ActionResult Attendees(string id)
 		{
 			if (id.Equals(null))
@@ -123,6 +133,10 @@ namespace QBO_Events_Management.Controllers
 			var json = new WebClient().DownloadString(attendees);
 
 			EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json);
+			
+
+			//JArray items = (JArray)test[json];
+			//items.Count();
 
 			return View(e.Attendees);
 
@@ -136,6 +150,17 @@ namespace QBO_Events_Management.Controllers
 
 			//return View(e.Attendees);
 		}
+
+		public ActionResult Profile()
+		{
+			return View();
+		}
+
+		public ActionResult AddAttendee()
+		{
+			return View();
+		}
+
 
 
 		protected override void Dispose(bool disposing)

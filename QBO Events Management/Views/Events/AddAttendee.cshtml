@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Add Participants";
+}
+
+
+<div class="container">
+    <br /><br /><br /><br />
+    <div class=" col-lg-6">
+        <br>
+        <a class="btn btn-primary" href="@Url.Action("Attendees")">Go Back</a>
+        <br /><br />
+        <img src="@Url.Content("~/Content/img/camera.png")" width="500" class="img-responsive" />
+    </div>
+    <div class="col-lg-6">
+        <div class="details" align="center">
+            <input class="form-control" type="text" placeholder="First Name" required />
+            <input class="form-control" type="text" placeholder="Last Name" required />
+            <input class="form-control" type="number" placeholder="Mobile Number" required />
+            <input class="form-control" type="email" placeholder="Email" required />
+            <select class="form-control">
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <select class="form-control">
+                <option>Select Industry/Sector</option>
+                <option>Startup</option>
+                <option>Student</option>
+                <option>Academe</option>
+                <option>Government</option>
+                <option>Media</option>
+                <option>Investor</option>
+                <option>Accelerator</option>
+                <option>Private Sector</option>
+                <option>Other</option>
+            </select>
+
+            <button class="btn btn-default" data-toggle="modal" data-target="#myModal">Save</button>
+        </div>
+    </div>
+</div>

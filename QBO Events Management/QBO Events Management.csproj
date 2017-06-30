@@ -209,6 +209,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706281001449_Initial_06282017.cs" />
+    <Compile Include="Migrations\201706281001449_Initial_06282017.Designer.cs">
+      <DependentUpon>201706281001449_Initial_06282017.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281010451_Initial_062820171.cs" />
+    <Compile Include="Migrations\201706281010451_Initial_062820171.Designer.cs">
+      <DependentUpon>201706281010451_Initial_062820171.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281013235_Initial_062820172.cs" />
+    <Compile Include="Migrations\201706281013235_Initial_062820172.Designer.cs">
+      <DependentUpon>201706281013235_Initial_062820172.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventBrite.cs" />
@@ -225,9 +237,12 @@
     <Content Include="Content\additional\qboMember.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\camera.PNG" />
     <Content Include="Content\img\default.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -238,6 +253,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\qbo-spectres - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\qbo-spectres - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -295,6 +315,8 @@
     <Content Include="Views\Manage\MemberAccount.cshtml" />
     <Content Include="Views\Events\ListOfEvents.cshtml" />
     <Content Include="Views\Events\Attendees.cshtml" />
+    <Content Include="Views\Events\AddAttendee.cshtml" />
+    <Content Include="Views\Events\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -311,6 +333,17 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706281001449_Initial_06282017.resx">
+      <DependentUpon>201706281001449_Initial_06282017.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281010451_Initial_062820171.resx">
+      <DependentUpon>201706281010451_Initial_062820171.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281013235_Initial_062820172.resx">
+      <DependentUpon>201706281013235_Initial_062820172.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

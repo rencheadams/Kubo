@@ -8,7 +8,7 @@ namespace QBO_Events_Management.Models
 	public class Participant
 	{
 		public int ParticipantID { get; set; }
-		public int PersonID { get; set; }
+		public string PersonID { get; set; }
 		public bool HasAttended { get; set; }
 		public string Email { get; set; }
 		public int EventsID { get; set; }

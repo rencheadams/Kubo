@@ -2,45 +2,86 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Events";
 }
 
 
+<div class="container">
+    <div class="row">
+        <br /><br /><br /><br />
+        <h1 class="title">EVENTS</h1>
+        <br />
+        <div class="col-lg-3">
+        </div>
 
-<div class="eventlist">
-    <br /><br /><br />
-    <table class="table table-bordered table-hover table-responsive">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Names)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Descriptions)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Start)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.End)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Created)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Changed)
-                </th>           
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+        <div class="col-lg-6">
+
+            @*<div id="imaginary_container">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-addon">
+
+                            <span class="glyphicon glyphicon-search"></span>
+
+                        </span>
+                    </div>
+                </div>*@
+
+        </div>
+
+        <br><br><br>
+
+        <table class="table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.ID)
+                        </th>*@
+                    <th>
+
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Names)*@
+                        Title
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Descriptions)*@
+                        Description
+                    </th>
+                    <th>
+                        Start-End Date
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Start)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.End)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Created)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Changed)
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Tickets
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
                     <tr>
+
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @*@if (item.Images.Original.ImgUrl != null)
+                                {
+                                   <img src="@item.Images.Original.ImgUrl" width="200" class="img-responsive" />
+                                 }*@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Names.Text)
@@ -50,8 +91,7 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Start.Local)
-                        </td>
-                        <td>
+                            to
                             @Html.DisplayFor(modelItem => item.End.Local)
                         </td>
                         <td>
@@ -61,17 +101,25 @@
                             @Html.DisplayFor(modelItem => item.Changed)
                         </td>
                         <td>
-                            @Html.ActionLink("Attendees", "Attendees", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID })
+                            @Html.DisplayFor(modelItem => item.Status)
                         </td>
-                    </tr>
-                }
-        </tbody>
+                        <td>
+                            0/@Html.DisplayFor(modelItem => item.Tickets)
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("View Attendees", "Attendees", new { id = item.ID class="btn btn-primary" })
+                                @Html.ActionLink("Details",item.URL)
+                                <a href="@item.URL" target="_blank">Details</a>*@
+                            <a href="@Url.Action("Attendees", new { id=item.ID})" class="btn btn-primary"><i class="fa fa-address-card-o"></i> View Participants</a>
+                            <a href="@item.URL" target="_blank" class="btn btn-success"><i class="fa fa-navicon"></i> View Details</a>
+                        </td>
+                    </tr>}
+            </tbody>
 
-    </table>
+        </table>
 
     </div>
-
+</div>
 
 
 

@@ -167,7 +167,7 @@ namespace QBO_Events_Management.Controllers
 				var result = await UserManager.CreateAsync(user, model.Password);
 				if (result.Succeeded)
 				{
-					UserManager.AddToRole(user.Id, "Member");
+					UserManager.AddToRole(user.Id, "Admin");
 					await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
 					// For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -516,15 +516,15 @@ namespace QBO_Events_Management.Controllers
 				return Redirect(returnUrl);
 			}
 
-			if (User.IsInRole("Member"))
+			if (User.IsInRole("Admin"))
 			{
 
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction("ListOfEvents", "Events");
 			}
 			else
 			{
 
-				return RedirectToAction("Index", "Events");
+				return RedirectToAction("Login", "Account");
 			}
 
 			//public ActionResult Redirect()

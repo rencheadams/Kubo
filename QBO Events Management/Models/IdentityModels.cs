@@ -20,9 +20,19 @@ namespace QBO_Events_Management.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
+			// Add custom user claims here
+			//userIdentity.AddClaim(new Claim("FullName", this.FullName));
             return userIdentity;
         }
+
+		//public static string GetFullName(this System.Security.Principal.IPrincipal usr)
+		//{
+		//	var fullNameClaim = ((ClaimsIdentity)usr.Identity).FindFirst("FullName");
+		//	if (fullNameClaim != null)
+		//		return fullNameClaim.Value;
+
+		//	return "";
+		//}
 
 		//public static implicit operator ApplicationUser(ApplicationUser v)
 		//{
@@ -51,4 +61,16 @@ namespace QBO_Events_Management.Models
 		
 
 	}
+
+	//public static class GenericPrincipalExtensions
+	//{
+	//	public static string GetFullName(this System.Security.Principal.IPrincipal usr)
+	//	{
+	//		var fullNameClaim = ((ClaimsIdentity)usr.Identity).FindFirst("FullName");
+	//		if (fullNameClaim != null)
+	//			return fullNameClaim.Value;
+
+	//		return "";
+	//	}
+	//}
 }
