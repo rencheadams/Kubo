@@ -15,8 +15,15 @@ namespace QBO_Events_Management.Models
 		[JsonProperty("attendees")]
 		public List<AttendeeList> Attendees { get; set; }
 
-	}
+        //public virtual List<Participant> Participant { get; set; }
 
+    }
+
+    public class Event
+    {
+        [JsonProperty("id")]
+        public string ID { get; set; }
+    }
 	public class EventList
 		{
 			[JsonProperty("id")]
@@ -51,7 +58,7 @@ namespace QBO_Events_Management.Models
 
 			[JsonProperty("logo")]
 			public Orig Images { get; set; }
-		}
+        }
 
 		public class Name
 			{

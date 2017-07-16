@@ -13,7 +13,7 @@ using QBO_Events_Management.Models;
 
 namespace QBO_Events_Management.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

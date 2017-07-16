@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 namespace QBO_Events_Management.Controllers
 {
 
-	[Authorize(Roles = "Admin")]
+	//[Authorize(Roles = "Admin")]
 	public class EventsController : Controller
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
@@ -25,7 +25,7 @@ namespace QBO_Events_Management.Controllers
 
 		public ActionResult ListOfEvents()
 		{
-			string organizer = "https://www.eventbriteapi.com/v3/organizers/14330786176/events/?token=RHB5LVF477QSIZN4JYP5";
+			string organizer = "https://www.eventbriteapi.com/v3/organizers/14330786176/events/?token=LHPV67GP4XI26S4J5YUE";
 
 			var json = new WebClient().DownloadString(organizer);
 
@@ -33,89 +33,89 @@ namespace QBO_Events_Management.Controllers
 			
 			return View(e.Events);
 
-			//e.Events.ForEach()
-			////get num of attendees
-			//string attendees = "https://www.eventbriteapi.com/v3/events/" + id + "/attendees/?token=RHB5LVF477QSIZN4JYP5";
-			//var json2 = new WebClient().DownloadString(attendees);
-			//EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json2);
+            //e.Events.ForEach()
+            ////get num of attendees
+            //string attendees = "https://www.eventbriteapi.com/v3/events/" + id + "/attendees/?token=RHB5LVF477QSIZN4JYP5";
+            //var json2 = new WebClient().DownloadString(attendees);
+            //EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json2);
 
-			//int length = e.Attendees.Count();
-			//ViewBag.Length = length;
-
-
-			//EventbriteContext context = new EventbriteContext("RHB5LVF477QSIZN4JYP5");
-			//// find a list of attendees for an event by supplying an id of the requested event.
-			//var attendees = context.Client.EventAttendees(35474832178);
-
-			//var events = context.Client.GetEvent(35474832178);
-			////var venue = context.Client.GetVenue(35474832178);
-			//JavaScriptSerializer json = new JavaScriptSerializer();
-
-			//ViewBag.Attendees = json.Serialize(attendees);
-			//ViewBag.Events = events;
-
-			//string api = @"https://www.eventbriteapi.com/v3/events/35474832178/attendees/?token=RHB5LVF477QSIZN4JYP5";
-
-			//var json = new WebClient().DownloadString(api);
-			//var format = JObject.Parse(json);
+            //int length = e.Attendees.Count();
+            //ViewBag.Length = length;
 
 
-			//var name = (string)format["attendees"][0]["profile"]["first_name"];
+            //EventbriteContext context = new EventbriteContext("RHB5LVF477QSIZN4JYP5");
+            //// find a list of attendees for an event by supplying an id of the requested event.
+            //var attendees = context.Client.EventAttendees(35474832178);
 
-			//ViewBag.Attendees = name;
+            //var events = context.Client.GetEvent(35474832178);
+            ////var venue = context.Client.GetVenue(35474832178);
+            //JavaScriptSerializer json = new JavaScriptSerializer();
 
+            //ViewBag.Attendees = json.Serialize(attendees);
+            //ViewBag.Events = events;
 
+            //string api = @"https://www.eventbriteapi.com/v3/events/35474832178/attendees/?token=5CL46OTRCKY5T2WCW6LL5";
 
-			//dynamic GetEventId = JObject.Parse(json);
-
-			// GetEventId.response.events.id;
-			//int id = GetEventId.GetObject().GetNamedNumber("id");
-
-			//var jss = new JavaScriptSerializer();
-
-			//var dict = jss.Deserialize<dynamic>(json);
-			//string organizer = "https://www.eventbriteapi.com/v3/organizers/14330786176/events/?token=RHB5LVF477QSIZN4JYP5";
-
-			//var json = new WebClient().DownloadString(organizer);
-
-			//var format = JObject.Parse(json);
+            //var json = new WebClient().DownloadString(api);
+            //var format = JObject.Parse(json);
 
 
-			//var EventsId = (string)format["events"]["id"];
+            //var name = (string)format["attendees"][0]["profile"]["first_name"];
+
+            //ViewBag.Attendees = name;
 
 
 
-			//ViewBag.OrgId = EventsId;
+            //dynamic GetEventId = JObject.Parse(json);
+
+            // GetEventId.response.events.id;
+            //int id = GetEventId.GetObject().GetNamedNumber("id");
+
+            //var jss = new JavaScriptSerializer();
+
+            //var dict = jss.Deserialize<dynamic>(json);
+            //string organizer = "https://www.eventbriteapi.com/v3/organizers/14330786176/events/?token=5CL46OTRCKY5T2WCW6LL";
+
+            //var json = new WebClient().DownloadString(organizer);
+
+            //var format = JObject.Parse(json);
+
+
+            //var EventsId = (string)format["events"]["id"];
 
 
 
-			//string Event = "https://www.eventbriteapi.com/v3/events/" + EventsId + "/attendees/?token=RHB5LVF477QSIZN4JYP5";
+            //ViewBag.OrgId = EventsId;
 
-			//var json2 = new WebClient().DownloadString(Event);
 
-			//var format2 = JObject.Parse(json2);
 
-			////ViewBag.Length = length;
-			//int x = 0;
-			//int length = (int)format2["pagination"]["object_count"];
-			//List<string> Attendees = new List<string>();
-			//for (int i = 0; i < length; i++)
-			//{
+            //string Event = "https://www.eventbriteapi.com/v3/events/" + EventsId + "/attendees/?token=RHB5LVF477QSIZN4JYP5";
 
-			//	string AttendeeName = (string)format2["attendees"][x]["profile"]["name"];
-			//	Attendees.Add(String.Format(AttendeeName + "{0}", x));
-			//	x++;
-			//	//foreach (var item in AttendeeName)
-			//	//{
-			//	//	Console.WriteLine(item.ToString());
-			//	//}
-			//	//IEnumerable<string> query = AttendeeName;
-			//}
+            //var json2 = new WebClient().DownloadString(Event);
 
-			//return View(Attendees);
-		}
+            //var format2 = JObject.Parse(json2);
 
-		public ActionResult Attendees(string id)
+            ////ViewBag.Length = length;
+            //int x = 0;
+            //int length = (int)format2["pagination"]["object_count"];
+            //List<string> Attendees = new List<string>();
+            //for (int i = 0; i < length; i++)
+            //{
+
+            //	string AttendeeName = (string)format2["attendees"][x]["profile"]["name"];
+            //	Attendees.Add(String.Format(AttendeeName + "{0}", x));
+            //	x++;
+            //	//foreach (var item in AttendeeName)
+            //	//{
+            //	//	Console.WriteLine(item.ToString());
+            //	//}
+            //	//IEnumerable<string> query = AttendeeName;
+            //}
+
+            //return View(Attendees);
+        }
+
+        public ActionResult Attendees(string id)
 		{
 			if (id.Equals(null))
 			{
@@ -128,42 +128,71 @@ namespace QBO_Events_Management.Controllers
 				return HttpNotFound();
 			}
 
-			string attendees = "https://www.eventbriteapi.com/v3/events/" + id + "/attendees/?token=RHB5LVF477QSIZN4JYP5";
+			string attendees = "https://www.eventbriteapi.com/v3/events/" + id + "/attendees/?token=LHPV67GP4XI26S4J5YUE";
 
 			var json = new WebClient().DownloadString(attendees);
 
 			EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json);
 			
-
 			//JArray items = (JArray)test[json];
 			//items.Count();
 
 			return View(e.Attendees);
 
+            //string attendees = "https://www.eventbriteapi.com/v3/events/35474832178/attendees/?token=5CL46OTRCKY5T2WCW6LL";
 
+            //var json = new WebClient().DownloadString(attendees);
 
-			//string attendees = "https://www.eventbriteapi.com/v3/events/35474832178/attendees/?token=RHB5LVF477QSIZN4JYP5";
+            //EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json);
 
-			//var json = new WebClient().DownloadString(attendees);
+            //return View(e.Attendees);
+        }
 
-			//EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json);
-
-			//return View(e.Attendees);
-		}
-
-		public ActionResult Profile()
+        public ActionResult Profile()
 		{
 			return View();
 		}
 
-		public ActionResult AddAttendee()
+        //GET: Event/AddAttendee/5
+        public ActionResult AddAttendee(string id)
 		{
-			return View();
+            if (id.Equals(null))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //EventBrite eventID = EventBrite.Equals(id);
+
+            if (string.IsNullOrEmpty(id))
+            {
+                return HttpNotFound();
+            }
+            string events = "https://www.eventbriteapi.com/v3/events/" + id + "/?token=5CL46OTRCKY5T2WCW6LL";
+
+            var json = new WebClient().DownloadString(events);
+
+            EventBrite e = JsonConvert.DeserializeObject<EventBrite>(json);
+
+            return View(e.Events);
 		}
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddAttendee([Bind(Include = "ParticipantID,Email,EventsID")] Participant participant)
+        {
 
+            if (ModelState.IsValid)
+            {
+                participant.PersonID = 0;
+                participant.HasAttended = true;
+                participant.Timestamp = DateTime.Now;
+                db.Entry(participant).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ListofEvents");
+            }
+            return View(participant);
+        }
 
-		protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
 		{
 			if (disposing)
 			{

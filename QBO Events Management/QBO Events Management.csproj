@@ -203,31 +203,45 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddPhoneNumberViewModel.cs" />
+    <Compile Include="Controllers\ChangePasswordViewModel.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HQsController.cs" />
+    <Compile Include="Controllers\IndexViewModel.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManageLoginsViewModel.cs" />
+    <Compile Include="Controllers\ParticipantsController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\SetPasswordViewModel.cs" />
+    <Compile Include="Controllers\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706281001449_Initial_06282017.cs" />
-    <Compile Include="Migrations\201706281001449_Initial_06282017.Designer.cs">
-      <DependentUpon>201706281001449_Initial_06282017.cs</DependentUpon>
+    <Compile Include="Migrations\201707111620264_Adams.cs" />
+    <Compile Include="Migrations\201707111620264_Adams.Designer.cs">
+      <DependentUpon>201707111620264_Adams.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706281010451_Initial_062820171.cs" />
-    <Compile Include="Migrations\201706281010451_Initial_062820171.Designer.cs">
-      <DependentUpon>201706281010451_Initial_062820171.cs</DependentUpon>
+    <Compile Include="Migrations\201707120123099_Renche2.cs" />
+    <Compile Include="Migrations\201707120123099_Renche2.Designer.cs">
+      <DependentUpon>201707120123099_Renche2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706281013235_Initial_062820172.cs" />
-    <Compile Include="Migrations\201706281013235_Initial_062820172.Designer.cs">
-      <DependentUpon>201706281013235_Initial_062820172.cs</DependentUpon>
+    <Compile Include="Migrations\201707140759260_Update2.cs" />
+    <Compile Include="Migrations\201707140759260_Update2.Designer.cs">
+      <DependentUpon>201707140759260_Update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707161958110_dalida.cs" />
+    <Compile Include="Migrations\201707161958110_dalida.Designer.cs">
+      <DependentUpon>201707161958110_dalida.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventBrite.cs" />
     <Compile Include="Models\EventModels.cs" />
+    <Compile Include="Models\HQModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ParticipantsModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -320,6 +334,22 @@
     <Content Include="Views\Events\Attendees.cshtml" />
     <Content Include="Views\Events\AddAttendee.cshtml" />
     <Content Include="Views\Events\Profile.cshtml" />
+    <Content Include="Views\HQs\Create.cshtml" />
+    <Content Include="Views\HQs\Delete.cshtml" />
+    <Content Include="Views\HQs\Details.cshtml" />
+    <Content Include="Views\HQs\Edit.cshtml" />
+    <Content Include="Views\HQs\Index.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\Participants\Create.cshtml" />
+    <Content Include="Views\Participants\Delete.cshtml" />
+    <Content Include="Views\Participants\Details.cshtml" />
+    <Content Include="Views\Participants\Edit.cshtml" />
+    <Content Include="Views\Participants\Index.cshtml" />
+    <Content Include="Views\HQs\Create2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -338,14 +368,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706281001449_Initial_06282017.resx">
-      <DependentUpon>201706281001449_Initial_06282017.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707111620264_Adams.resx">
+      <DependentUpon>201707111620264_Adams.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706281010451_Initial_062820171.resx">
-      <DependentUpon>201706281010451_Initial_062820171.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707120123099_Renche2.resx">
+      <DependentUpon>201707120123099_Renche2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706281013235_Initial_062820172.resx">
-      <DependentUpon>201706281013235_Initial_062820172.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707140759260_Update2.resx">
+      <DependentUpon>201707140759260_Update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707161958110_dalida.resx">
+      <DependentUpon>201707161958110_dalida.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

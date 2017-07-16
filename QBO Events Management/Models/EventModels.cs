@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QBO_Events_Management.Models
 {
-	
+	/*
 	public class Event
 	{
 		public int eventsID { get; set; }
@@ -19,7 +19,7 @@ namespace QBO_Events_Management.Models
 		public DateTime Changed { get; set; }
 		public string Status { get; set; }
 		public int Tickets { get; set; }
-
+    
 
 		//public int eventID { get; set; }
 
@@ -46,5 +46,5 @@ namespace QBO_Events_Management.Models
 		//      public bool IsPublished { get; set; }
 
 		//      public string Status { get; set; }
-	}
+	}*/
 }

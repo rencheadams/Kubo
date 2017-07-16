@@ -55,11 +55,11 @@ namespace QBO_Events_Management.Models
 		
 		//public DbSet<Event> Events { get; set; }
 
+        public DbSet<Person> People { get; set; }
+
 		public DbSet<Participant> Participants { get; set; }
 
-		public DbSet<ParticipantPhoto> ParticipantPhotos { get; set; }
-		
-
+        public DbSet<HQ> HQs { get; set; }
 	}
 
 	//public static class GenericPrincipalExtensions
