@@ -104,7 +104,7 @@
                                 @Html.ActionLink("Details",item.URL)
                                 <a href="@item.URL" target="_blank">Details</a>*@
                             <a class="btn btn-success" href="@Url.Action("Create","Participants", new { id=item.ID})"><i class="fa fa-user-circle"></i> Add Attendance</a>
-                            <a href="@Url.Action("Attendees", new { id=item.ID})" class="btn btn-primary"><i class="fa fa-address-card-o"></i> View Participants</a>
+                            <a href="@Url.Action("List","Participants", new { id=item.ID})" class="btn btn-primary"><i class="fa fa-address-card-o"></i> View Participants</a>
                             <a href="@item.URL" target="_blank" class="btn btn-success"><i class="fa fa-navicon"></i> View Details</a>
                         </td>
                     </tr>}

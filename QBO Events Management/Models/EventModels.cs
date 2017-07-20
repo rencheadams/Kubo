@@ -7,19 +7,22 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QBO_Events_Management.Models
 {
-	/*
+	
 	public class Event
 	{
-		public int eventsID { get; set; }
-		public string Title { get; set; }
-		public string Description { get; set; }
-		public DateTime StartDateTime { get; set; }
-		public DateTime StartEndTime { get; set; }
-		public DateTime Created { get; set; }
+		public string EventsID { get; set; }
+		public string Name { get; set; }
+		public string URL { get; set; }
+        public string Description { get; set; }
+        public DateTime StartDateTime { get; set; }
+		public DateTime EndDateTime { get; set; }
+        public String Status { get; set; }
+        public String Tickets { get; set; }
+
+        /*
+        public DateTime Created { get; set; }
 		public DateTime Changed { get; set; }
-		public string Status { get; set; }
-		public int Tickets { get; set; }
-    
+        */
 
 		//public int eventID { get; set; }
 
@@ -46,5 +49,5 @@ namespace QBO_Events_Management.Models
 		//      public bool IsPublished { get; set; }
 
 		//      public string Status { get; set; }
-	}*/
+	}
 }

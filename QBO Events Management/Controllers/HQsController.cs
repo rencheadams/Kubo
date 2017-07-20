@@ -66,8 +66,7 @@ namespace QBO_Events_Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(HQ hQ)
         {
-            bool IsAdded = false;
-
+            
             if (hQ == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.OK);

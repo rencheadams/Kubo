@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,9 +20,9 @@ namespace QBO_Events_Management.Models
 
         public bool HasAttended { get; set; }
 
-
-		public string EventsID { get; set; }
-        public virtual Event Event { get; set; }
+        [JsonProperty("id")]
+        public string EventsID { get; set; }
+        //public virtual Event Event { get; set; }
 
 		public DateTime? Timestamp { get; set; }
 	}

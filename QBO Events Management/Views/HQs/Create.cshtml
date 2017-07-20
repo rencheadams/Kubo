@@ -53,8 +53,11 @@
             @Html.LabelFor(model => model.Person.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Person.Gender)
-                    @Html.ValidationMessageFor(model => model.Person.Gender, "", new { @class = "text-danger" })
+                   @* @Html.EditorFor(model => model.Person.Gender)
+                    @Html.ValidationMessageFor(model => model.Person.Gender, "", new { @class = "text-danger" }) *@
+                    <input type="radio" name="Person.Gender" id="Person.Gender_F" value="false" /><label for="Gender_F">&nbsp;Female</label>
+                    &nbsp;
+                    <input type="radio" name="Person.Gender" id="Person.Gender_M" value="true" /><label for="Gender_M">&nbsp;Male</label>
                 </div>
             </div>
         </div>
@@ -62,8 +65,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Person.Sector, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Person.Sector, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Person.Sector, "", new { @class = "text-danger" })
+
+               @* @Html.EditorFor(model => model.Person.Sector, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Person.Sector, "", new { @class = "text-danger" }) *@
+                <select name="Person.Sector" id="Person.Sector" class="form-control">
+                    <option value="Startup">Startup</option>
+                    <option value="Student">Student</option>
+                    <option value="Academe">Academe</option>
+                    <option value="Government">Government</option>
+                    <option value="Media">Media</option>
+                    <option value="Investor">Investor</option>
+                    <option value="Startup Enabler/Accelerator,/Incubator">Startup Enabler/Accelerator/Incubator</option>
+                    <option value="Private Sector">Private Sector</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
         </div>
 
@@ -71,8 +86,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Purpose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                @*
                 @Html.EditorFor(model => model.Purpose, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Purpose, "", new { @class = "text-danger" })
+                *@
+                <select name="Purpose" id="Purpose" class="form-control">
+                    <option value="Event">Event</option>
+                    <option value="Co-working">Co-working</option>
+                    <option value="Just Visiting">Just Visiting</option>
+                    <option value="Meeting">Meeting</option>
+                    <option value="Mentoring Session">Mentoring Session</option>
+                </select>
             </div>
         </div>
 

@@ -4,49 +4,70 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="container">
+    <div class="row">
+        <br /><br /><br /><br />
+        <h1 class="title">HQ</h1>
+        <br />
+        <div class="col-lg-3">
+            <a class="btn btn-primary" href="@Url.Action("Create")">Add HQ</a>
+        </div>
+        <div class="col-lg-6">
+        </div>
+        <br><br><br>
 
-<h2>Index</h2>
+        <table class="table table-bordered table-hover table-responsive" id="hqTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Person.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Person.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Purpose)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Person.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Person.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Purpose)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.HQID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.HQID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.HQID })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#hqTable').dataTable();
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Person.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Person.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Purpose)
-        </th>
-        <th></th>
-    </tr>
+        });
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Person.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Person.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Purpose)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HQID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HQID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HQID })
-        </td>
-    </tr>
+
+    </script>
 }
-
-</table>

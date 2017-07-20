@@ -15,13 +15,15 @@ namespace QBO_Events_Management.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /*
         // GET: Participants
         public ActionResult Index()
         {
             var participants = db.Participants.Include(p => p.Person);
             return View(participants.ToList());
         }
-
+        */
+        /*
         // GET: Participants/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,7 +38,7 @@ namespace QBO_Events_Management.Controllers
             }
             return View(participant);
         }
-
+        */
         // GET: Participants/Create
         public ActionResult Create(string ID)
         {
@@ -49,14 +51,9 @@ namespace QBO_Events_Management.Controllers
 
             var json = new WebClient().DownloadString(events);
 
-            Event e = JsonConvert.DeserializeObject<Event>(json);
+            Participant e = JsonConvert.DeserializeObject<Participant>(json);
 
-            //JArray items = (JArray)test[json];
-            //items.Count();
-
-            return View(e.ID);
-            //ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName");
-            //return View();
+            return View(e);
         }
         
 
@@ -67,18 +64,6 @@ namespace QBO_Events_Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Participant participant)
         {
-            /*
-            if (ModelState.IsValid)
-            {
-                db.Participants.Add(participant);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", participant.PersonID);
-            return View(participant);
-            */
-            
             if (participant == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -94,11 +79,6 @@ namespace QBO_Events_Management.Controllers
                 Sector = participant.Person.Sector
             };
 
-            var events = new Event
-            {
-                ID = participant.Event.ID
-            };
-
             var participants = new Participant
             {
                 EventsID = participant.EventsID
@@ -108,84 +88,39 @@ namespace QBO_Events_Management.Controllers
             {
                 var person2 = db.People.FirstOrDefault(m => m.Email == person.Email);
 
-                if (person2 == null)
-                {
-                    context.People.Add(person);
-                    participant.PersonID = person.PersonID;
-                }
-                else
+                if(person2 != null)
                 {
                     var personID = db.People.FirstOrDefault(m => m.Email == person.Email).PersonID;
-                    participant.PersonID = personID;
+                    participants.PersonID = personID;
+                }
+                else if(person2 == null)
+                {
+                    context.People.Add(person);
+                    participants.PersonID = person.PersonID;
                 }
 
-                participant.Timestamp = DateTime.Now;
-                participant.HasAttended = true;
-                participant.EventsID = events.ID;
-                context.Participants.Add(participant);
+                participants.Timestamp = DateTime.Now;
+                participants.HasAttended = true;
+                context.Participants.Add(participants);
 
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
         }
 
-        // GET: Participants/Edit/5
-        public ActionResult Edit(int? id)
+        //GET: Participants/List/5
+        public ActionResult List(string ID)
         {
-            if (id == null)
+            if (ID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Participant participant = db.Participants.Find(id);
-            if (participant == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", participant.PersonID);
-            return View(participant);
-        }
-
-        // POST: Participants/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ParticipantID,PersonID,HasAttended,Email,EventsID,Timestamp")] Participant participant)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(participant).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", participant.PersonID);
-            return View(participant);
-        }
-
-        // GET: Participants/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Participant participant = db.Participants.Find(id);
+            var participant = db.Participants.Where(m => m.EventsID == ID).ToList();
             if (participant == null)
             {
                 return HttpNotFound();
             }
             return View(participant);
-        }
-
-        // POST: Participants/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int? id)
-        {
-            Participant participant = db.Participants.Find(id);
-            db.Participants.Remove(participant);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

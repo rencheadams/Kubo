@@ -171,3 +171,4 @@ C:\Users\Renche Adams\Documents\GitHub\Kubo\QBO Events Management\obj\Debug\QBO 
 C:\Users\Renche Adams\Documents\GitHub\Kubo\QBO Events Management\obj\Debug\QBO_Events_Management.Migrations.Renche2.resources
 C:\Users\Renche Adams\Documents\GitHub\Kubo\QBO Events Management\obj\Debug\QBO_Events_Management.Migrations.Update2.resources
 C:\Users\Renche Adams\Documents\GitHub\Kubo\QBO Events Management\obj\Debug\QBO_Events_Management.Migrations.dalida.resources
+C:\Users\Renche Adams\Documents\GitHub\Kubo\QBO Events Management\obj\Debug\QBO_Events_Management.Migrations.Renche21.resources

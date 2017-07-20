@@ -1,0 +1,73 @@
+﻿@model IEnumerable<QBO_Events_Management.Models.Participant>
+
+@{
+    ViewBag.Title = "Participant";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <br /><br /><br /><br />
+        <h1 class="title">PARTICIPANTS</h1>
+        <br />
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+        <br><br><br />
+        <table class="table table-bordered table-hover table-responsive" id="participantTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Person.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HasAttended)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EventsID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Timestamp)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Person.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HasAttended)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventsID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Timestamp)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ParticipantID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ParticipantID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ParticipantID })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#participantTable').dataTable();
+
+        });
+
+
+    </script>
+}
