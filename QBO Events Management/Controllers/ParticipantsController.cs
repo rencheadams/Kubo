@@ -104,7 +104,7 @@ namespace QBO_Events_Management.Controllers
                 context.Participants.Add(participants);
 
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListofEvents","Events");
             }
         }
 

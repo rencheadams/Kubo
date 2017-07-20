@@ -1,64 +1,96 @@
 ﻿@model IEnumerable<QBO_Events_Management.Models.Person>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "People";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="container">
+    <div class="row">
+        <br /><br /><br /><br />
+        <h1 class="title">People</h1>
+        <br />
+        <div class="col-lg-3">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+        <div class="col-lg-6">
 
-<h2>Index</h2>
+        </div>
+        <br><br><br>
+        <table class="table table-bordered table-hover table-responsive" id="peopleTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MobileNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sector)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MobileNumber)
+                        </td>
+                        <td>
+                            @if (!item.Gender)
+                            {
+                                <p>Female</p>
+                            } 
+                            else 
+                            {
+                                <p>Male</p>
+                            }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MobileNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sector)
-        </th>
-        <th></th>
-    </tr>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sector)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.PersonID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.PersonID })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MobileNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sector)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PersonID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PersonID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PersonID })
-        </td>
-    </tr>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#peopleTable').dataTable();
+
+        });
+
+
+    </script>
 }
-
-</table>
